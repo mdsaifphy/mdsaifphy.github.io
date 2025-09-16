@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Mohd Saif - Physics & Materials Science Researcher</title>
+    <!-- 
+        TO ADD PROFILE PHOTO:
+        1. Save your photo as 'profile-photo.jpg' in the same folder as this HTML file
+        2. Make sure it's a square image (recommended: 300x300px or larger)
+        3. The photo will automatically appear in the circular frame
+        
+        RESEARCH BACKGROUND ELEMENTS:
+        - Molecular structure patterns representing materials science
+        - Rotating atomic orbital diagram
+        - Scientific grid patterns symbolizing crystallography
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .content {
+            padding: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: #7f8c8d;
+            margin-bottom: 0.3rem;
+        }
+
+        .duration {
+            color: #95a5a6;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .publication {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+
+        .publication:hover {
+            transform: translateX(5px);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-details {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .doi-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .doi-link:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .accepted-badge {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: #27ae60;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+            color: #7f8c8d;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .research-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .interest-tag {
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .conference-item {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border-left: 3px solid #9b59b6;
+        }
+
+        .conference-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .conference-details {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .objective {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f2ff 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            font-style: italic;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="research-elements"></div>
+            <div class="crystal-lattice"></div>
+            <div class="header-content">
+                <div class="profile-img">
+                    <!-- Replace 'profile-photo.jpg' with actual photo file -->
+                    <div class="profile-placeholder">👨‍🔬</div>
+                </div>
+                <h1 class="name">Dr. Mohd Saif</h1>
+                <p class="title">Physics & Materials Science Researcher</p>
+                <p style="margin-top: 1rem; opacity: 0.9;">Department of Physics and Materials Science and Engineering<br>
+                Jaypee Institute of Information Technology, Noida, India</p>
+                
+                <div class="contact-info">
+                    <a href="mailto:mohdsaif25656@gmail.com" class="contact-item">
+                        ✉️ mohdsaif25656@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/dr-mohd-saif-01449b254" target="_blank" class="contact-item">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://researchgate.net/profile/Mohd-Saif-14" target="_blank" class="contact-item">
+                        🔬 ResearchGate
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=ZryowNMAAAAJ" target="_blank" class="contact-item">
+                        🎓 Google Scholar
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">Research Interests</h2>
+                    <div class="research-interests">
+                        <span class="interest-tag">Thermoelectric Materials</span>
+                        <span class="interest-tag">Layered Cuprates</span>
+                        <span class="interest-tag">Ion Substitution</span>
+                        <span class="interest-tag">Superconductors</span>
+                        <span class="interest-tag">Transport Properties</span>
+                        <span class="interest-tag">Energy Materials</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Characterization</h4>
+                            <ul class="skill-list">
+                                <li>X-ray Diffraction (XRD)</li>
+                                <li>Scanning Electron Microscopy</li>
+                                <li>FTIR Spectroscopy</li>
+                                <li>Electrical Resistivity</li>
+                                <li>Thermopower Measurement</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Software</h4>
+                            <ul class="skill-list">
+                                <li>FullProf Suite</li>
+                                <li>Origin Pro</li>
+                                <li>ImageJ</li>
+                                <li>Xpert HighScore Plus</li>
+                                <li>Microsoft Office Suite</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Recent Conferences</h2>
+                    <div class="conference-item">
+                        <div class="conference-name">ICHEAM-2024</div>
+                        <div class="conference-details">BHU Varanasi • Oral Presentation</div>
+                    </div>
+                    <div class="conference-item">
+                        <div class="conference-name">WAMB-2024</div>
+                        <div class="conference-details">JIIT Noida • Advanced Materials</div>
+                    </div>
+                    <div class="conference-item">
+                        <div class="conference-name">ICEAM-2024</div>
+                        <div class="conference-details">JIIT Noida • Energy Materials</div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="objective">
+                    "As a dedicated physics researcher specializing in thermoelectric materials, I aim to advance the understanding of structure-property relationships in layered cuprates and contribute to sustainable energy solutions through innovative materials design and characterization."
+                </div>
+
+                <div class="section">
+                    <div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);">
+                        <h2 style="margin-bottom: 1rem; font-size: 1.8rem; font-weight: 300;">🎯 Seeking Research Opportunities</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.95;">
+                            <strong>Available for Postdoctoral Positions</strong> starting <strong>2025</strong><br>
+                            Open to collaborations in materials science, condensed matter physics, and energy applications
+                        </p>
+                        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">🔬 Postdoctoral Researcher</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">👨‍🏫 Research Scientist</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">🤝 Research Collaborations</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">🏫 Academic Positions</span>
+                        </div>
+                        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                            <a href="mailto:mohdsaif25656@gmail.com?subject=Research%20Opportunity%20Inquiry&body=Dear%20Dr.%20Mohd%20Saif%2C%0A%0AI%20am%20writing%20to%20inquire%20about%20potential%20research%20opportunities.%20I%20came%20across%20your%20profile%20and%20am%20interested%20in%20discussing%3A%0A%0A-%20Postdoctoral%20positions%0A-%20Research%20collaborations%0A-%20Academic%20opportunities%0A%0APlease%20let%20me%20know%20if%20you%20would%20be%20available%20for%20a%20discussion.%0A%0ABest%20regards" 
+                               style="background: rgba(255,255,255,0.9); color: #27ae60; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" 
+                               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'" 
+                               onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 2px 10px rgba(0,0,0,0.1)'"
+                               title="Click to send email directly">
+                                📧 Contact for Opportunities
+                            </a>
+                            <a href="https://linkedin.com/in/dr-mohd-saif-01449b254" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                                💼 Connect on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">Ph.D. in Physics</div>
+                        <div class="institution">Jaypee Institute of Information Technology, Noida</div>
+                        <div class="duration">2020 - 2025 • CGPA: 8.9/10.0</div>
+                        <p style="margin-top: 0.8rem; color: #2c3e50;"><strong>Thesis:</strong> Alio-valent ions substitution on low-temperature thermoelectric properties of layered cuprates</p>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="degree">M.Sc. in Physics</div>
+                        <div class="institution">J.C. Bose University of Science and Technology, YMCA Faridabad</div>
+                        <div class="duration">2017 - 2019 • 72.1%</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="degree">B.Sc. (Physics, Chemistry, Mathematics)</div>
+                        <div class="institution">Maharshi Dayanand University, Rohtak</div>
+                        <div class="duration">2014 - 2017 • 63.8%</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Research Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="degree">Ph.D. Research Fellow</div>
+                        <div class="institution">Jaypee Institute of Information Technology, Noida</div>
+                        <div class="duration">2020 - 2025</div>
+                        <ul style="margin-top: 1rem; color: #555; line-height: 1.6;">
+                            <li>Synthesized and optimized layered cuprate materials using solid-state reaction methods</li>
+                            <li>Designed and operated in-house electrical resistivity and thermopower measurement systems</li>
+                            <li>Published 6 research papers in peer-reviewed journals with significant impact</li>
+                            <li>Investigated structure-property correlations in thermoelectric materials</li>
+                            <li>Mentored junior researchers and managed laboratory equipment</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Publications</h2>
+                    <p style="margin-bottom: 1.5rem; color: #7f8c8d; font-style: italic;">6 Peer-Reviewed Journal Articles</p>
+                    
+                    <div class="publication">
+                        <div class="pub-title">Enhanced Thermoelectric Performance of La₁.₉₈Sr₀.₀₂Cu₀.₉₄Co₀.₀₆O₄ by Multi-Walled Carbon Nanotubes Addition</div>
+                        <div class="pub-details">Saif, M.; Tripathi, D. <em>Energy Storage</em> <strong>6</strong>(8), e70098 (2024)</div>
+                        <a href="https://doi.org/10.1002/est2.70098" target="_blank" class="doi-link">🔗 DOI: 10.1002/est2.70098</a>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-title">Impact of La substitution on the thermoelectric properties of polycrystalline (Bi, Pb)-2223 below room temperature</div>
+                        <div class="pub-details">Saif, M.; Tripathi, D. <em>International Journal of Materials Research</em> (2025)</div>
+                        <a href="https://doi.org/10.1515/ijmr-2024-0179" target="_blank" class="doi-link">🔗 DOI: 10.1515/ijmr-2024-0179</a>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-title">Thermoelectric properties of La₁.₉₆Sr₀.₀₄CuO₄ for energy harvesting and storage applications</div>
+                        <div class="pub-details">Saif, M.; Tripathi, D. <em>Energy Storage</em> <strong>6</strong>(1), e545 (2024)</div>
+                        <a href="https://doi.org/10.1002/est2.545" target="_blank" class="doi-link">🔗 DOI: 10.1002/est2.545</a>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-title">AC Losses in MgB₂ Added Bulk (Bi, Pb)-2223 Superconductor</div>
+                        <div class="pub-details">Saif, M.; Tripathi, D.; Joshi, B.C.; et al. <em>Bulletin of Materials Science</em> (Accepted)</div>
+                        <span class="accepted-badge">✅ Accepted for Publication</span>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-title">Thermoelectric properties of Sr‐doped LSCO for energy harvesting applications below room temperature</div>
+                        <div class="pub-details">Saif, M.; Tripathi, D. <em>Energy Storage</em> <strong>5</strong>(2), e393 (2023)</div>
+                        <a href="https://doi.org/10.1002/est2.393" target="_blank" class="doi-link">🔗 DOI: 10.1002/est2.393</a>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-title">Low temperature thermoelectric properties of cobalt doped La₁.₉₈Sr₀.₀₂CuO₄</div>
+                        <div class="pub-details">Saif, M.; Tripathi, D. <em>Materials Today: Proceedings</em> (2023)</div>
+                        <a href="https://doi.org/10.1016/j.matpr.2023.05.044" target="_blank" class="doi-link">🔗 DOI: 10.1016/j.matpr.2023.05.044</a>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Dr. Mohd Saif. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/dr-mohd-saif-01449b254" target="_blank">LinkedIn</a>
+                <a href="https://researchgate.net/profile/Mohd-Saif-14" target="_blank">ResearchGate</a>
+                <a href="https://scholar.google.com/citations?user=ZryowNMAAAAJ" target="_blank">Google Scholar</a>
+            </div>
+            <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                Last updated: September 2025 | Hosted on GitHub Pages
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
